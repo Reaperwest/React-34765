@@ -6,15 +6,11 @@ import miLogo from '../assets/img/logo512.png';
 import clases from './NavBar.css';
 
 import {
-  //Collapse,
   UncontrolledCollapse,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
-  //FormGroup,
-  //Form,
-  //Input,
   NavbarBrand,
   Navbar,
   NavItem,
