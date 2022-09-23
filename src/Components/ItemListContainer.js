@@ -1,7 +1,7 @@
-function ItemListContainer() {
+function ItemListContainer(props) {
     return (
       <>
-        <p>Catálogo</p>
+        <p>{props.greating}</p>
       </>
     );
   }
