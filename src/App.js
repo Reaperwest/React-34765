@@ -1,14 +1,20 @@
-import { Nav } from 'reactstrap';
+import { Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import './App.css';
-import NavBar from './Components/NavBar';
+import Layout from './hoc/Layout/Layout';
 import ItemListContainer from './Components/ItemListContainer';
 
 function App() {
   return (
     <>
-      <NavBar />
-      <h2>Las ofertas de la semana</h2>
-      <ItemListContainer greating = {"Catálgo"} />
+    <Layout>
+      <Switch>
+        <Route
+          path="/home"
+          render={() => <ItemListContainer greating = {"Catálgo"} />}
+        />
+        <Redirect from="/" to="/home" />
+      </Switch>
+    </Layout>
     </>
   );
 }
