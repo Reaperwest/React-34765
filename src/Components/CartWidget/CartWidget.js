@@ -1,9 +1,9 @@
-import "../assets/css/nucleo-icons.css";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function CartWidget() {
     return (
       <>
-        <i className="tim-icons icon-cart"></i>
+        <ShoppingCartIcon />
       </>
     );
   }

@@ -1,8 +1,6 @@
 import React from "react";
-import "../assets/css/blk-design-system-react.css";
-import CartWidget from './CartWidget';
-import "../assets/css/nucleo-icons.css";
-import miLogo from '../assets/img/logo512.png';
+import CartWidget from '../CartWidget/CartWidget';
+import miLogo from '../../assets/img/logo512.png';
 import clases from './NavBar.css';
 
 import {
@@ -27,12 +25,13 @@ class NavbarDocs extends React.Component {
   render() {
     return (
       <>
-        <Navbar className="bg-dark" expand="lg">
-        <img className={clases.cat} src={miLogo} alt="ArkhamGames"/>
+        <Navbar className="navbar navbar-dark bg-dark" expand="lg">
+          <img className={clases.cat} src={miLogo} alt="ArkhamGames"/>
+          <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
+            Arkham Games
+          </NavbarBrand>
           <Container>
-            <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
-              Arkham Games
-            </NavbarBrand>
+            
             <button
               className="navbar-toggler"
               id="navbarNavDropdown"
