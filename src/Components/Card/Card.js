@@ -61,7 +61,7 @@ export default function CardComponent(props) {
             >
               <Typography level="h2" noWrap sx={{ fontSize: 'lg' }}>
                 <Link
-                  href="#dribbble-shot"
+                  href={`/game/${props.id}`}
                   overlay
                   underline="none"
                   sx={{

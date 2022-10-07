@@ -10,6 +10,7 @@ function ItemList(props) {
           return (
             <Card
               key={game.id}
+              id={game.id}
               title={game.title}
               img={game.img}
               price={game.price}

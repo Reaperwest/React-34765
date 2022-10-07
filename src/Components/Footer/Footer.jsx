@@ -16,9 +16,10 @@ import {
 } from "reactstrap";
 
 export default function Footer() {
+
   return (
     <footer className="footer">
-      <Container>
+      <Container >
         <Row>
           <Col md="3">
             <img className={clases.cat} src={miLogo} alt="ArkhamGames"/> 

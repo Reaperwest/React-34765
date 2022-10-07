@@ -1,6 +1,9 @@
-img {
+.img {
     height:50px;
     width: 50px;
     object-fit: contain;
-    background-color: rgb(39,39,39);
-}
+};
+
+.container {
+    background-color: black
+};

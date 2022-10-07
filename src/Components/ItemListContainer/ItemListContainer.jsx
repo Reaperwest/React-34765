@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "./ItemListContainer.css";
 
-import { getGames } from "../mockAPI/mockAPI";
+import { getGames, getGamesByCategory } from "../../mockAPI/mockAPI";
 import ItemList from "./ItemList";
-import ItemCount from "../ItemCount/ItemCount";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer(props) {
-  const [gamesList, setGamesList] = useState([]);  
+  const [gamesList, setGamesList] = useState([]);
+  const params = useParams();
+  const categoryID = params.categoryID;
 
   useEffect(() => {
-    getGames().then((data) => {
-      setGamesList(data);
-    });
-  }, []);
+    if (categoryID === undefined) {
+      getGames().then((data) => {
+        setGamesList(data);
+      });
+    } else {
+      getGamesByCategory(categoryID).then((data) => {
+        setGamesList(data);
+      });
+    }
+  }, [categoryID]);
 
   return (
     <div className="container">
-      <h1>{props.greeting}</h1>
+      <h1>Tendencias</h1>
       <ItemList gamesList={gamesList} />
       <hr />
     </div>
