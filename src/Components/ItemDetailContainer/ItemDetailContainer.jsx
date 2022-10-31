@@ -1,33 +1,36 @@
 import React, { useState, useEffect } from "react";
 
-import { getGame } from "../../mockAPI/mockAPI";
+import { getGame } from "../../services/firebase";
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
 import CardDetail from "./CardDetail";
 
-// 6. Leer los parámetros de la URL
 import { useParams } from "react-router-dom";
 
 function ItemDetailContainer(props) {
   const [game, setGame] = useState([]);
-
+  const [feedbackMsg, setFeedbackMsg] = useState(null);
   const { itemID } = useParams();
 
+  console.log("Item id", itemID );
   useEffect(() => {
-    getGame(itemID).then((data) => {
-      setGame(data);
-    });
+    getGame(itemID)
+      .then((data) => {
+        setGame(data);
+      })
+      .catch((error) => {
+        console.log("Catch?")
+        setFeedbackMsg(error.message);
+      });
   }, [itemID]);
+
 
   return (
     <FlexWrapper>
-      <CardDetail
-        title={game.title}
-        img={game.img}
-        price={game.price}
-        detail={game.detail}
-        stock={game.stock}
-        expired={game.expires}
-      />
+      {feedbackMsg !== null ? (
+        <h4>Error: {feedbackMsg}</h4>
+      ) : (
+        <CardDetail game={game} />
+      )}
     </FlexWrapper>
   );
 }

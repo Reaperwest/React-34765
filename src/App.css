@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-bottom: 40px;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
 
 code {
@@ -17,6 +21,10 @@ code {
   padding: 0px;
 }
 
+.html {
+  min-height: 100%;
+  position: relative;
+}
 
 .header-banner{
   width: 100%;

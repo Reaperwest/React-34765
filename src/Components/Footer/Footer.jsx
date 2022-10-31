@@ -18,11 +18,15 @@ import {
 export default function Footer() {
 
   return (
-    <footer className="footer">
+    <footer className={clases.footer} >
       <Container >
         <Row>
           <Col md="3">
-            <img className={clases.cat} src={miLogo} alt="ArkhamGames"/> 
+            <img style={{
+            width: "50px",
+            height: "50px",
+            objectFit: "contain"
+        }} className={clases.cat} src={miLogo} alt="ArkhamGames"/> 
             <h1 className="title">Arkham Games</h1>
           </Col>
           <Col md="3">
@@ -60,7 +64,7 @@ export default function Footer() {
                 id="tooltip622135962"
                 target="_blank"
               >
-                <i class="bi bi-twitter" ></i>
+                <i  style={{color: "white" }} className="bi bi-twitter" ></i>
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip622135962">
                 Follow us
@@ -72,7 +76,7 @@ export default function Footer() {
                 id="tooltip230450801"
                 target="_blank"
               >
-                <i class="bi bi-facebook"></i>
+                <i style={{color: "white" }} className="bi bi-facebook"></i>
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip230450801">
                 Like us

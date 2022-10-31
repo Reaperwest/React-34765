@@ -1,23 +1,60 @@
-import React from "react";
+import {React, useState} from "react";
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 
-function CardDetail(props) {
+import { useContext } from "react";
+import { cartContext } from "../../context/cartContext";
+import { Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
+
+function CardDetail({ game }) {
+  const [count, setCount] = useState(0);
+  const { addToCart } = useContext(cartContext);
+
+  function handleAddToCart(count) {
+    addToCart(game, count);
+    setCount(count);
+  }
+
+  if (game.title)
   return (
     <div className="detail-container">
       <FlexWrapper>
         <div className="main container">
-          <h1>{props.title}</h1>
-          <div className="img">
-          <img  src={props.img} alt={props.title} />
-          </div>
-          <h3>$ {props.price}</h3>
+          <h1>{game.title}</h1>
+         
+            <img  style={{
+              width: "500px",
+              height: "auto",
+              position:"relative", 
+              display:"block",
+              zIndex: "1"
+        }} src={game.img} alt={game.title} />
+        
+        <p style={{
+              width: "600px",
+              height: "auto",
+              position:"relative", 
+              display:"block"
+        }}>{game.detail}</p>
+          <h3>$ {game.price}</h3>
         </div>
-        <ItemCount stock={props.stock} initial={1} text="Agregar al carrito" />
+        {count === 0 ? (
+        <ItemCount 
+          onAddToCart={handleAddToCart}
+          text="Agregar al carrito" 
+          stock={game.stock} 
+          initial={1} 
+          />
+          ) : (
+            <Link to="/cart">Ver el carrito</Link>
+          )}
       </FlexWrapper>
     </div>
   );
+
+  return <Loader />;
 }
 
 export default CardDetail;

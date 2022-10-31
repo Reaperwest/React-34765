@@ -1,7 +1,9 @@
 import React from "react";
 import CartWidget from '../CartWidget/CartWidget';
 import miLogo from '../../assets/img/logo512.png';
-import clases from './NavBar.css';
+import './NavBar.css';
+
+import { Link } from "react-router-dom";
 
 import {
   UncontrolledCollapse,
@@ -13,13 +15,18 @@ import {
   Container
 } from "reactstrap";
 
+
 class NavbarDocs extends React.Component {
   render() {
     return (
       <>
         <Navbar className="navbar navbar-dark bg-dark" expand="lg">
-          <img className={clases.cat} src={miLogo} alt="ArkhamGames"/>
-          <NavbarBrand href="/">
+          <img  style={{
+            width: "50px",
+            height: "50px",
+            objectFit: "contain"
+        }} src={miLogo} alt="ArkhamGames"/>
+          <NavbarBrand  tag={Link} to="/">
             Arkham Games
           </NavbarBrand>
           <Container>
@@ -35,27 +42,27 @@ class NavbarDocs extends React.Component {
             <UncontrolledCollapse navbar toggler="#navbarNavDropdown">
               <Nav navbar>
                 <NavItem className="active">
-                  <NavLink href="/" >
+                  <NavLink tag={Link} to="/" >
                     Home <span className="sr-only">(current)</span>
                   </NavLink>
                 </NavItem>
                 <NavItem className="active">
-                  <NavLink href="/category/pc" >
+                  <NavLink tag={Link} to="/category/pc" >
                     PC <span className="sr-only">(current)</span>
                   </NavLink>
                 </NavItem>
                 <NavItem className="active">
-                  <NavLink href="/category/playstation" >
+                  <NavLink tag={Link} to="/category/playstation" >
                     Playstation <span className="sr-only">(current)</span>
                   </NavLink>
                 </NavItem>
                 <NavItem className="active">
-                  <NavLink href="/category/xbox" >
+                  <NavLink tag={Link} to="/category/xbox" >
                     Xbox <span className="sr-only">(current)</span>
                   </NavLink>
                 </NavItem>
                 <NavItem className="active">
-                  <NavLink href="/category/nintendo-switch">
+                  <NavLink tag={Link} to="/category/nintendo-switch">
                     Nintendo Switch <span className="sr-only">(current)</span>
                   </NavLink>
                 </NavItem>
